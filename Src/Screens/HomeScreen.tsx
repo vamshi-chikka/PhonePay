@@ -3,14 +3,20 @@ import React,{useContext} from 'react';
 import { ThemeContext } from '../../Context/Theme/ThemeContext';
 
 function HomeScreen(){
-    
+    const {colors} = useContext(ThemeContext);
+    const styles = createStyles(colors);
     return(
-        <View >
+        <View style={styles.container}>
             <Text >Home</Text>
         </View>
     )
 }
 
-
+const createStyles = (colors) => StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:colors.backGroundColor
+    }
+})
 
 export default HomeScreen
