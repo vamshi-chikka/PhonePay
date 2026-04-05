@@ -11,6 +11,8 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import MaterialDesignIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { View,Text } from "react-native";
 import { ThemeContext } from '../Context/Theme/ThemeContext';
+import AlertStack from "./AlertStack";
+import HistStack from './HistStack';
 
 function TabNavigator(){
     const Tab = createBottomTabNavigator();
@@ -50,7 +52,7 @@ function TabNavigator(){
                     )
                 }}
             />
-            <Tab.Screen name="AlertsScreen" component={AlertsScreen} 
+            <Tab.Screen name="AlertStack" component={AlertStack} 
                 options={{
                     tabBarLabel:({focused})=>(<Text style={{fontSize:13,fontWeight:focused?'bold': '400',color:colors.text}}>Alerts</Text>),
                     tabBarIcon:({focused,size,color})=>(
@@ -58,7 +60,7 @@ function TabNavigator(){
                         
                     )
                 }}/>
-            <Tab.Screen name="HistScreen" component={HistScreen} 
+            <Tab.Screen name="HistStack" component={HistStack} 
                 options={{tabBarLabel:({focused})=>(<Text style={{fontSize:13,fontWeight:focused?'bold': '400',color:colors.text}}>History</Text>),
                     tabBarIcon:({focused,size,color})=>(
                         focused ? (<MaterialIcons name="access-time-filled" size={size} color={colors.text}/>) : (<MaterialIcons name="access-time" size={size} color={colors.text}/>) 
