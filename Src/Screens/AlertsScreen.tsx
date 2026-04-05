@@ -1,22 +1,20 @@
 import { ThemeContext } from '../../Context/Theme/ThemeContext'
 import React,{useContext} from 'react';
-import { View,Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { View,Text, StyleSheet, Image } from "react-native";
+import { getFontSize } from '../../utils/fonts';
+import Help from '../components/Help';
+
 
 function AlertsScreen(){
     const {colors} = useContext(ThemeContext);
     const styles = createStyles(colors)
     return(
         <View style={styles.container}>
-            <View style={styles.icon}>
-                <TouchableOpacity activeOpacity={0.9}>
-                    <MaterialIcons name="help-outline" size={27} color={colors.iconColor}/>
-                </TouchableOpacity>
-            </View>
+            <Help screenName='AlertInfo'/>
             <Text style={styles.text}>Alerts</Text>
             {
                 <View style={styles.imageContainer}>
-                    <Image source={require('../../Assets/images/Empty.png')} style={{width: 200, height: 200}}/>
+                    <Image source={require('../../assets/images/Empty.png')} style={{width: 200, height: 200}}/>
                 </View>
             }
         </View>
@@ -33,7 +31,7 @@ const createStyles = (colors) => StyleSheet.create({
     text:{
         color:colors.text,
         fontWeight:'bold',
-        fontSize:20
+        fontSize:getFontSize(20),
     },
     icon:{
         alignItems:'flex-end',
